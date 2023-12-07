@@ -61,7 +61,7 @@ public class CameraRentalUtility {
 	private static void subMenuOption() {
 		int choice;
 		String con="";
-		cameraService cs=new cameraService();
+		cameraService1 cs=new cameraService1();
 		do {
 			System.out.println("1.Add");
 			System.out.println("2.Remove");

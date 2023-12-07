@@ -2,7 +2,8 @@
 
 import java.util.Scanner;
 
-import com.camerarental.service1.cameraService;
+//import com.camerarental.service.cameraService;
+import com.camerarental.service.cameraService1;
 
 public class CameraRentalUtility {
 	static Scanner sc=new Scanner(System.in);
@@ -23,8 +24,7 @@ public class CameraRentalUtility {
 		
 	}
 	private static void mainOption() {
-	
-		cameraService cs=new cameraService();
+		cameraService1 cs=new cameraService1();
 		int choice;
 		String con="";
 		do {
@@ -61,7 +61,7 @@ public class CameraRentalUtility {
 	private static void subMenuOption() {
 		int choice;
 		String con="";
-		cameraService cs=new cameraService();
+		cameraService1 cs=new cameraService1();
 		do {
 			System.out.println("1.Add");
 			System.out.println("2.Remove");

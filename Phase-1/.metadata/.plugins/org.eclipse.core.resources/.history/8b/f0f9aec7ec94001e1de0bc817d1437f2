@@ -53,15 +53,15 @@ public class cameraService {
 	        	listOfCamera.remove(cameraIndex - 1);
 	            System.out.println("Camera removed successfully!");
 	        } else {
-	            System.out.println("Please check the index once again");
+	            System.out.println("Invalid camera index.");
 	        }
 	    }
 
 	    public void viewAllCamera() {
 	        if (listOfCamera.isEmpty()) {
-	            System.out.println("No camera available");
+	            System.out.println("No Data Present at This Moment.");
 	        } else {
-	            System.out.println("AVAILABLE CAMERA(S)-");
+	            System.out.println("FOLLOWING IS THE LIST OF AVAILABLE CAMERA(S)-");
 	            System.out.println("================================================================================");
 	            System.out.printf("%-12s%-16s%-18s%-15s%s%n", "CAMERA ID", "BRAND", "MODEL NUMBER", "PRICE (PER DAY)", "STATUS");
 	            System.out.println("================================================================================");

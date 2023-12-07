@@ -61,7 +61,7 @@ public class cameraService {
 	        if (listOfCamera.isEmpty()) {
 	            System.out.println("No camera available");
 	        } else {
-	            System.out.println("AVAILABLE CAMERA(S)-");
+	            System.out.println("FOLLOWING IS THE LIST OF AVAILABLE CAMERA(S)-");
 	            System.out.println("================================================================================");
 	            System.out.printf("%-12s%-16s%-18s%-15s%s%n", "CAMERA ID", "BRAND", "MODEL NUMBER", "PRICE (PER DAY)", "STATUS");
 	            System.out.println("================================================================================");
