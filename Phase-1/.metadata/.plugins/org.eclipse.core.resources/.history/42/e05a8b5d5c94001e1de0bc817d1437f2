@@ -1,0 +1,43 @@
+package com.camerarental.service;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Scanner;
+
+import com.camerarental.bean.camera;
+
+public class cameraService {
+	
+	List<camera> listOfCamera=new ArrayList<camera>();
+	Scanner sc=new Scanner(System.in);
+	public void addCamera() {
+		System.out.println("Enter the camera brand");
+		String brand=sc.next();
+		System.out.println("Enter the camera model");
+		String model=sc.next();
+		System.out.println("Enter the per day price");
+		float perDayPrice=sc.nextFloat();
+		camera  cc= new camera();
+		cc.setBrand(brand);
+		cc.setModel(model);
+		cc.setPerDayPrice(perDayPrice);
+		cc.setStatus("Available");
+		listOfCamera.add(cc);
+		System.out.println("Details added successfully");
+		
+		
+		
+	}
+	public void removeCamera() {
+		
+	}
+	public void viewAllCamera() {
+		Iterator<camera> it=listOfCamera.iterator();
+		while(it.hasNext()) {
+			camera cc=it.next();
+			System.out.println(cc);
+		}
+		
+	}
+}

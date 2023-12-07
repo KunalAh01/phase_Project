@@ -1,0 +1,31 @@
+	package com.cemerarental.utitlity;
+
+import java.util.Scanner;
+
+public class CameraRentalUtility {
+	static Scanner sc=new Scanner(System.in);
+	public static void login() {
+		System.out.println("Enter the email");
+		String emailid=sc.next();
+		System.out.println("Enter the password");
+		String password=sc.next();
+		if(emailid=="cameraRent@gmail.com" && password=="camera@123") {
+			System.out.println("successfully logged in");
+			mainOption();
+		}
+		else {
+			System.out.println("Please check you credentials once again");
+		}
+		
+		
+		
+	}
+	private static void mainOption() {
+		
+	}
+	private static void subMenuOption() {
+		 	
+	}
+
+
+}

@@ -1,0 +1,117 @@
+package com.camerarental.service1;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import com.camerarental.bean.camera;
+
+public class cameraService1 {
+
+
+	    static Scanner sc = new Scanner(System.in);
+	    private List<camera> cameraList = new ArrayList<>();
+	    private float walletBalance = 0;
+
+	    public cameraService1() {
+	        initializeCameraList();
+	    }
+
+	    private void initializeCameraList() {
+	        cameraList.add(new camera(1, "Canon", "1500D", 1000, "Not Available"));
+	        cameraList.add(new camera(2, "Canon", "3000D", 850, "Available"));
+	        cameraList.add(new camera(3, "Canon", "850D", 1500, "Available"));
+	        cameraList.add(new camera(4, "Canon", "90D", 1750, "Available"));
+	        cameraList.add(new camera(5, "Nikon", "D850", 1500, "Available"));
+	        cameraList.add(new camera(6, "Nikon", "D700", 1200, "Available"));
+	        cameraList.add(new camera(7, "Nikon", "D5600", 1200, "Available"));
+	        cameraList.add(new camera(8, "Nikon", "D3500", 1100, "Available"));
+	        cameraList.add(new camera(9, "Sony", "7III", 1000, "Available"));
+	        cameraList.add(new camera(10, "Sony", "7CII", 1100, "Available"));
+	        cameraList.add(new camera(11, "Sony", "9III", 1200, "Available"));
+	        cameraList.add(new camera(12, "Sony", "7CR", 2000, "Available"));
+	    }
+
+	    public void addCamera() {
+	        System.out.println("Enter the brand of the camera:");
+	        String brand = sc.next();
+	        System.out.println("Enter the model of the camera:");
+	        String model = sc.next();
+	        System.out.println("Enter the per-day rental amount:");
+	        float perDayPrice = sc.nextFloat();
+
+	        camera newCamera = new camera(cameraList.size() + 1, brand, model, perDayPrice, "Available");
+	        cameraList.add(newCamera);
+	        System.out.println("Camera added successfully!");
+	    }
+
+	    public void removeCamera() {
+	        System.out.println("Enter the index of the camera to remove:");
+	        int cameraIndex = sc.nextInt();
+
+	        if (cameraIndex >= 0 && cameraIndex < cameraList.size()) {
+	            cameraList.remove(cameraIndex - 1);
+	            System.out.println("Camera removed successfully!");
+	        } else {
+	            System.out.println("Invalid camera index.");
+	        }
+	    }
+
+	    public void viewAllCamera() {
+	        if (cameraList.isEmpty()) {
+	            System.out.println("No Data Present at This Moment.");
+	        } else {
+	            System.out.println("FOLLOWING IS THE LIST OF AVAILABLE CAMERA(S)-");
+	            System.out.println("================================================================================");
+	            System.out.printf("%-12s%-16s%-18s%-15s%s%n", "CAMERA ID", "BRAND", "MODEL NUMBER", "PRICE (PER DAY)", "STATUS");
+	            System.out.println("================================================================================");
+	            displayCameraList();
+	            System.out.println("================================================================================");
+	        }
+	    }
+
+	    public void rentCamera() {
+	        System.out.println("Enter the index of the camera you want to rent:");
+	        int cameraIndex = sc.nextInt();
+
+	        if (cameraIndex >= 1 && cameraIndex <= cameraList.size()) {
+	            Camera selectedCamera = cameraList.get(cameraIndex - 1);
+
+	            if (walletBalance >= selectedCamera.getPerDayPrice()) {
+	                walletBalance -= selectedCamera.getPerDayPrice();
+	                selectedCamera.setAvailability("Not Available");
+	                System.out.println("Camera rented successfully! Amount deducted from wallet.");
+	            } else {
+	                System.out.println("Insufficient balance in your wallet. Please deposit money.");
+	            }
+	        } else {
+	            System.out.println("Invalid camera index.");
+	        }
+	    }
+
+	    public void myWallet() {
+	        System.out.println("Wallet Balance: INR " + walletBalance);
+
+	        System.out.println("1: Deposit money (Only INR) ");
+	        System.out.println("2: Go back to the previous menu");
+	        int choice = sc.nextInt();
+
+	        switch (choice) {
+	            case 1:
+	                System.out.println("Enter the amount to deposit:");
+	                float depositAmount = sc.nextFloat();
+	                walletBalance += depositAmount;
+	                System.out.println("Amount deposited successfully! New balance: INR" + walletBalance);
+	                break;
+	            case 2:
+	                break;
+	            default:
+	                System.out.println("Invalid choice.");
+	        }
+	    }
+
+	    public void displayCameraList() {
+	        for (camera camera : cameraList) {
+	            System.out.printf("%-12d%-16s%-18s%-15.2f%s%n", camera.getId(), camera.getBrand(),
+	                    camera.getModel(), camera.getPerDayPrice(), camera.getStatus());
+	        }
+	    }
+
