@@ -21,11 +21,11 @@ public List<Vitals> findAllVitals(){
 	
 	public String deleteVitals(int id) {
 		if(vd.deleteVitals(id)>0) {
-			return "Patient deleted successfully";
+			return "Vitals deleted successfully";
 			
 		}
 		else {
-			return"Patient not present";
+			return"Vitals not present";
 		}
 }
 }

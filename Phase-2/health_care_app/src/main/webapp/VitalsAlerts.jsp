@@ -50,7 +50,7 @@
 			<td><%=p.getSNo()%></td>
 			<td><%=p.getPid() %></td>
 			<td><%=(p.getBPHigh()> 140 ? "High BP ":"Normal " ) %>  </td>
-			<td><%=(p.getBPLow()<80 ? "Low BP> ":"Normal" ) %>  </td>
+			<td><%=(p.getBPLow()<80 ? "Low BP ":"Normal" ) %>  </td>
 			<td><%=p.getSPO2() <80 ? "Less then 90,Not Normal!!":"Normal Oxygen level"%></td>
 			<td><%=p.getRecordedOn() %></td>
 
